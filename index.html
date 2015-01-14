@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+<div class-"row">
+<div class="col-lg-3 col-md-3 col-sm-2 col-xs-2">
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-8 col-xs-8">
+	<h1>Smiles</h1>
+	<h2>The app that smiles back : )</h2>
+
+	<form>
+	<label for="search">Search Here: </label><input id="search" type="text"><div class="btn btn-success"><i class="fa fa-smile-o fa-2x"></i> Go!</div>
+	</form>
+	
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-success">
+	    <div class="panel-heading" role="tab" id="headingOne">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	          What Makes You Happy?  <span class="glyphicon glyphicon-pencil"></span>
+	      </a>
+	      </h4>
+		</div>
+		 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		      	<label for="happy">Add Happiness Here: </label><input type="text" id="happyAdder" name="happy"> <div class="btn btn-success happyAdd"><span class="glyphicon glyphicon-plus"></span></div>
+		      	<form>
+	          	<fieldset id="happiness_box">
+	          		<label>Things</label><br>
+	          		<input type="checkbox" value="nature"> Nature
+	          		<input type="checkbox" value="animals"> Animals<br>
+	          		<label>Places</label><br>
+	          		<input type="checkbox" value="mountains"> Mountains
+	          		<input type="checkbox" value="ocean"> Ocean
+	          		<input type="checkbox" value="desert"> Desert
+	          		<input type="checkbox" value="music"> Music
+	          		<input type="checkbox" value="dancing"> Dancing
+	          		<input type="checkbox" value="singing"> Singing<br>
+	          		<label>Emotions</label><br>
+	          		<input type="checkbox" value="excitement"> Excitement
+	          		<input type="checkbox" value="peaceful"> Peaceful 
+	          		<input type="checkbox" value="tranquil"> Tranquil
+	          		<input type="checkbox" value="music"> Music
+	          		<input type="checkbox" value="dancing"> Dancing
+	          		<input type="checkbox" value="singing"> Singing<br>
+	          		<label>Your Own Happiness</label><br>
+
+	          	</fieldset>
+
+	          </form>
+
+		       
+		      </div>
+	    </div>
+  </div>
+  
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">How Many Smiles Do You Need? </h3>
+  </div>
+  <div class="panel-body">
+    <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off"><i class="fa fa-smile-o fa-2x"></i>
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-smile-o fa-2x"></i><i class="fa fa-smile-o fa-2x"></i></label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option3" autocomplete="off"><i class="fa fa-smile-o fa-2x"></i><i class="fa fa-smile-o fa-2x"></i><i class="fa fa-smile-o fa-2x"></i></label>
+</div>
+  </div>
+</div>
+
+
+
+<!--Begin Product Display Here-->
+
+<div id="photos">
+</div>
+	
+	
+
+
+
+</div><!--End Middle Column-->
+<div class="col-lg-3 col-md-3 col-sm-2 col-xs-2">
+
+</div>
+
+
+</div>
+</div><!-- End Container -->
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
