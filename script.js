@@ -1,5 +1,3 @@
-//When you click the search button, take search box value and query Flickr API
-
 $(".btn-success").click(function (){
 	var queryTerm = $("#search").val();
 	console.log(queryTerm);
@@ -13,20 +11,18 @@ $(".btn-success").click(function (){
 
 		var photoHTML = '<ul>';
 		$.each(data.items, function(i, photo){
-			photoHTML += '<li><img src="' + photo.media.m +'"> </li>';
-			photoHTML += '</ul>';
-			$("#photos").html(photoHTML);
-
+			photoHTML += '<li><img src="' + photo.media.m +'" class="img-responsive img-thumbnail" align="center"> </li>';
 		});
+		
+		photoHTML += '</ul>';
+		$("#photos").html(photoHTML);
 	}
 
 	$.getJSON(flickerAPI, flickrOptions, displayPhotos);
 
 }); 
 
-/*Everything below this comment is trying to pull in the values from the happiness check box
-
-var happyArray = [];
+/*var happyArray = [];
 
 $(".btn-success").click(function (){
 	
