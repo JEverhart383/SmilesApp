@@ -1,6 +1,6 @@
 $(".btn-success").click(function (){
 	var queryTerm = $("#search").val();
-	console.log(queryTerm);
+
 	var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 	var flickrOptions = {
 			tags: queryTerm,
@@ -9,6 +9,7 @@ $(".btn-success").click(function (){
 
 	function displayPhotos(data){
 
+
 		var photoHTML = '<ul>';
 		$.each(data.items, function(i, photo){
 			photoHTML += '<li><img src="' + photo.media.m +'" class="img-responsive img-thumbnail" align="center"> </li>';
@@ -16,6 +17,12 @@ $(".btn-success").click(function (){
 		
 		photoHTML += '</ul>';
 		$("#photos").html(photoHTML);
+
+		$("#photos").show();
+		$("#photos").hide(30000 , function( ){
+			$("#photos").html(" ");
+
+		});
 	}
 
 	$.getJSON(flickerAPI, flickrOptions, displayPhotos);
