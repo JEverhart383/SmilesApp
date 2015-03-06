@@ -1,14 +1,27 @@
 $("document").ready(function(){
 
-	window.setInterval( smileToggle, 3000);
+
+
+if ($(".smile-holder")){
+
+	var counter = 0;	
 
 	function smileToggle(){
+		$(".smile-main").toggleClass("animated wobble");
+		counter += 1;
 
-	$(".smile-main").toggleClass("animated wobble");
-	};
+		if (counter > 8){
+			//show a pointer to the smile button 
+		}
+	};//End smileToggle function
 
-$(".btn-success").click(function (){
-	var queryTerm = $("#search").val();
+	window.setInterval(smileToggle, 3000);
+
+}
+
+$(".smile-main").click(function (){
+	var queryTerm = "dog";
+	//$("#search").val();
 
 	var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 	var flickrOptions = {
@@ -26,15 +39,20 @@ $(".btn-success").click(function (){
 		
 		photoHTML += '</ul>';
 		$("#photos").html(photoHTML);
-
-		//$("#photos").show();
-		//$("#photos").hide(30000 , function( ){
-		//	$("#photos").html(" ");
-
-		//});
+		$(".smile-main").hide();
+		$("#photos").show();
 	}
 
 	$.getJSON(flickerAPI, flickrOptions, displayPhotos);
+
+		function removePhotos(){
+
+			$("#photos").hide( 'slow' , function( ){
+				$(".smile-main").show();
+			});
+		}//end removePhotos function
+
+		window.setTimeout(removePhotos, 20000);
 
 }); 
 
