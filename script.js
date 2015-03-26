@@ -38,19 +38,16 @@ function createNewHappy(happyTagName){
 
 }
 
-function writeHappyList(happyArray){
-	$(".happy-list").empty();
+	function writeHappyList(happyArray){
+			$(".happy-list").empty();
 
-	for (var i = 0; i < happyArray.length; i++ ){
+			for (var i = 0; i < happyArray.length; i++ ){
 
-	var happyTag = "<li class='btn btn-default'>" + happyArray[i].happyTagName + "  " + "<span class='glyphicon glyphicon-remove'></span>" + "</li>"; 
-	$(".happy-list").append(happyTag);
+				var happyTag = "<li class='btn btn-default'>" + happyArray[i].happyTagName + "  " + "<span class='glyphicon glyphicon-remove'></span>" + "</li>"; 
+				$(".happy-list").append(happyTag);
 
-}
-
-
-
-}
+			}
+	}
 
 
 if ($(".smile-holder")){
@@ -76,13 +73,16 @@ $(".smile-main").click(function (){
 
 	viewCounter += 1;
 
-	console.log(viewCounter);
+	if (viewCounter === 2){
+
+	console.log("evaulated");
+
+	$("#myModal").modal('show');
+
+	}
 	
 
 	var queryTerm = happyArray[happyArrayIndex].happyTagName;
-	console.log(queryTerm); 
-	//$("#search").val();
-
 	var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 	var flickrOptions = {
 			tags: queryTerm,
@@ -118,82 +118,41 @@ $(".smile-main").click(function (){
 
 if ($(".happy-list")){
 
-if(localStorage.getItem("happyArray")){
-	happyArray = JSON.parse(localStorage.getItem("happyArray"));
+		if(localStorage.getItem("happyArray")){
+			happyArray = JSON.parse(localStorage.getItem("happyArray"));
 
-}	
-
-
-writeHappyList(happyArray);
+			}	
 
 
-$(".happy-button").click(function(){
-	 newHappyName = $("input").val(); 
-
-	 var newHappyTag = new createNewHappy(newHappyName);
-
-	 happyArray.push(newHappyTag); 
-
-	 writeHappyList(happyArray);
-
-	 $("input").val( " " );
-
-	 localStorage.setItem("happyArray", JSON.stringify(happyArray)); 
-
-});
+		writeHappyList(happyArray);
 
 
-$(".btn-default").click(function(){
+		$(".happy-button").click(function(){
+			 newHappyName = $("input").val(); 
 
-	var i = $(this).index();
-	happyArray.splice(i, 1);
-	$(this).remove();
-	localStorage.setItem("happyArray", JSON.stringify(happyArray)); 
-});
+			 var newHappyTag = new createNewHappy(newHappyName);
 
+			 happyArray.push(newHappyTag); 
 
+			 writeHappyList(happyArray);
 
-}
+			 $("input").val( " " );
 
-if (viewCounter == 2){
+			 localStorage.setItem("happyArray", JSON.stringify(happyArray)); 
 
-	$("#myModal").modal('show');
-
-
-}
-
-//Create global happiness array
+		});
 
 
-//When page loads, check for happiness array and append any checked boxes to the custom happiness area 
-//When Save button is clicked, collect values of checked boxes and store/write in array
+		$(".btn-default").click(function(){
+
+			var i = $(this).index();
+			happyArray.splice(i, 1);
+			$(this).remove();
+			localStorage.setItem("happyArray", JSON.stringify(happyArray)); 
+		});
 
 
 
-//When custom happiness button is clicked, collect value of text input and add to array. Append checked checkbox to happiness area, clear input 
+}//End if happy list 
 
-
-
-
-
-/*var happyArray = [];
-
-$(".btn-success").click(function (){
-	
-	$('input[type="checkbox"]:checked').each(function(index){
-		console.log($(this).val());
-		happyArray.push($(this).val());
-
-	})
-
-	console.log(happyArray);
-
-});
-
-$('.happyAdd').click(function(){
-	var happyAdd = $('#happyAdder').val();
-	$('#happiness_box').append('<input type="checkbox" value="' + happyAdd + '" checked>' + " " + happyAdd);
-
-}) */
-
-});
+}); //End document ready
