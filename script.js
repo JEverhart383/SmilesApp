@@ -3,6 +3,7 @@ $("document").ready(function(){
 
 //Globals
 var viewCounter = 0;
+var adViewRandom = Math.floor(Math.random() * (6 - 2)) + 2;
 var happyArray = [
 		{
 			"happyTagName":"Nature"
@@ -65,19 +66,32 @@ if ($(".smile-holder")){
 
 	window.setInterval(smileToggle, 3000);
 
+	console.log(adViewRandom);
+
 }
 
 $(".smile-main").click(function (){
 	
 	var happyArrayIndex = Math.floor(Math.random() * (happyArray.length - 0 ) + 0 );
+	var timerVal = 0; 
 
 	viewCounter += 1;
 
-	if (viewCounter === 2){
+	if ((viewCounter%adViewRandom)=== 0){
 
-	console.log("evaulated");
+		$("#myModal").modal('show');
 
-	$("#myModal").modal('show');
+		function checkTimer(){
+			timerVal += 1000;
+			var time = 7 - (timerVal/1000); 
+			$(".adCountdown").html(time); 		
+		}
+
+		window.setInterval(checkTimer, 1000); 
+
+		window.setTimeout(function(){
+			$("#myModal").modal('hide');
+		}, 7000);
 
 	}
 	
