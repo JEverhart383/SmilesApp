@@ -9,6 +9,7 @@ Product Road Map:
 4. Create Apple/Andriod Png 
 5. Add "add to home screen widget" 
 6. Link Facebook API to share open graph stories 
+7. Optimize images for mobile display
 
 You can find a live version of the project here: http://smiles.jeffreyeverhart.com
 
