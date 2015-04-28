@@ -105,18 +105,26 @@ $(".smile-main").click(function (){
 
 	function displayPhotos(data){
 
+		console.log(data); 
+
 		var photoHTML = '<ul>';
 		$.each(data.items, function(i, photo){
-			photoHTML += '<li class="dynamicLI"><img src="' + photo.media.m +'" class="img-responsive img-thumbnail" align="center"> </li>';
+			photoHTML += '<li class="dynamicLI"><img src="' + photo.media.m +'" class="img-responsive img-thumbnail" align="center">' 
+			// photoHTML += '<div class="fb-like" data-href="' + photo.media.m + '" data-width="100" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div></li>';
+			photoHTML += '<div class="fb-share-button" data-href="' + photo.media.m + '" data-layout="box_count"></div>'
 		});
-		
-		photoHTML += '</ul>';
+			photoHTML += '</ul>';
+
 		$("#photos").html(photoHTML);
 		$(".smile-main").hide();
 		$("#photos").show();
+		FB.XFBML.parse();
+
 	}
 
 	$.getJSON(flickerAPI, flickrOptions, displayPhotos);
+
+
 
 		function removePhotos(){
 
@@ -125,7 +133,7 @@ $(".smile-main").click(function (){
 			});
 		}//end removePhotos function
 
-		window.setTimeout(removePhotos, 20000);
+	//	window.setTimeout(removePhotos, 20000);
 
 }); 
 
